@@ -18,6 +18,7 @@ Achat Complet Produit
 
     Aller Au Checkout
     Remplir Informations Client    John    Doe    12345
+    Continuer Vers Recapitulatif
     Confirmer Achat
 
-    Page Should Contain    Thank you for your order
+    Get Text    css=[data-test="complete-header"]    contains    Thank you for your order

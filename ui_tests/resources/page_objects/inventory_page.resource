@@ -5,8 +5,8 @@ Documentation    Shared keywords for the SauceDemo inventory page.
 
 
 *** Variables ***
-${PRODUCT_TITLE}     css=.inventory_item_name
-${PRODUCT_PRICE}     css=.inventory_item_price
+${PRODUCT_TITLE}     css=.inventory_item_name >> nth=0
+${PRODUCT_PRICE}     css=.inventory_item_price >> nth=0
 ${CART_ICON}         css=#shopping_cart_container
 
 

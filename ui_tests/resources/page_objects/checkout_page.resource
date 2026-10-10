@@ -20,6 +20,10 @@ Remplir Informations Client
     Fill Text    ${LAST_NAME}     ${last}
     Fill Text    ${POSTAL_CODE}   ${zip}
 
+Continuer Vers Recapitulatif
+    [Documentation]    Valide les informations client et ouvre le récapitulatif de commande.
+    Click    ${CONTINUE}
+
 Confirmer Achat
     [Documentation]    Confirme la commande en cours.
     Click    ${FINISH}

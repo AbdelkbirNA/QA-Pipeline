@@ -223,13 +223,13 @@ Valider Produit Par Id
 
 Valider Limite Produits
     [Arguments]    ${limit}
-    ${response}=    GET    ${BASE_URL}/products?limit=${limit}
+    ${response}=    GET    ${BASE_URL}/products    params=limit=${limit}
     Valider Status Code    ${response}    200
     Valider Limite Resultats    ${response.json()}    ${limit}
 
 Valider Structure Premier Produit Avec Limite
     [Arguments]    ${limit}
-    ${response}=    GET    ${BASE_URL}/products?limit=${limit}
+    ${response}=    GET    ${BASE_URL}/products    params=limit=${limit}
     Valider Status Code    ${response}    200
     ${products}=    Set Variable    ${response.json()}
     Valider Liste Produits    ${products}

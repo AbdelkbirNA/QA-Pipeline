@@ -19,13 +19,13 @@ GET produit unique - structure valide
 
 GET produits limite 5 - volume respecte
     [Documentation]    Vérifie que le paramètre limit retourne le bon nombre d'éléments.
-    ${response}=    GET    ${BASE_URL}/products?limit=5
+    ${response}=    GET    ${BASE_URL}/products    params=limit=5
     Valider Status Code    ${response}    200
     Valider Limite Resultats    ${response.json()}    5
 
 GET produits et categories - coherence categorie
     [Documentation]    Vérifie qu'une catégorie produit appartient à la liste des catégories.
-    ${products_response}=    GET    ${BASE_URL}/products?limit=5
+    ${products_response}=    GET    ${BASE_URL}/products    params=limit=5
     ${categories_response}=    GET    ${BASE_URL}/products/categories
     Valider Status Code    ${products_response}    200
     Valider Status Code    ${categories_response}    200
