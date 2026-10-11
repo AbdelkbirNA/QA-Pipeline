@@ -1,18 +1,20 @@
-# QAReports — API & UI test automation with a CI/CD pipeline
+# QA-Pipeline — API & UI test automation with a CI/CD pipeline
 
 A test automation framework built from scratch: Robot Framework drives both the
 API and browser layers, Docker makes runs reproducible, Jenkins orchestrates
 them, and Allure turns the result into a report someone who didn't write the
 tests can read.
 
-**[View the latest test report →](https://abdelkbirna.github.io/QAReports/report.html)**
+**61 tests (56 API, 5 UI), all passing, a full run takes under 20 seconds.**
+
+**[View the latest test report →](https://abdelkbirna.github.io/QA-Pipeline/report.html)**
 
 ## What's here
 
 | Path | What it is |
 |---|---|
 | `api_tests/` | API test suites and their resource files |
-| `ui_tests/` | Browser test suites (Selenium via SeleniumLibrary) |
+| `ui_tests/` | Browser test suites (Playwright through the Robot Framework Browser library) |
 | `Jenkinsfile` | Pipeline: checkout → prepare → run in Docker → publish Allure |
 | `Dockerfile` | Test runner image |
 | `Dockerfile.allure` | Allure report generator |
@@ -22,21 +24,17 @@ tests can read.
 
 ## Stack
 
-Robot Framework 7.0 · SeleniumLibrary 6.3 · RequestsLibrary 0.9.5 ·
-Selenium 4.18 · Docker · Jenkins · Allure
+Robot Framework · Browser library (Playwright) · RequestsLibrary ·
+Docker · Jenkins · Allure
 
 ## Running it
 
 ```bash
-pip install -r requirements.txt
-robot --outputdir output/robot api_tests/tests ui_tests/tests
-```
-
-Or containerised, which is how CI runs it:
-
-```bash
 docker compose up --build
 ```
+
+This is how CI runs it. The runner image (`ppodgorsek/robot-framework`) already
+ships the Browser library; Allure results land in `results/`.
 
 ## Why it's built this way
 
